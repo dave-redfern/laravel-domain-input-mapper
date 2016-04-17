@@ -1,0 +1,36 @@
+{
+    "name": "somnambulist/laravel-domain-input-mapper",
+    "type": "library",
+    "description": "A collection of support classes for creating Domain Input objects and mapping to entities in a Laravel project.",
+    "keywords": [
+        "domain",
+        "ddd",
+        "input mapping",
+        "laravel"
+    ],
+    "minimum-stability": "dev",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Dave Redfern",
+            "email": "dave@scorpioframework.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.5.9",
+        "illuminate/http": "5.2.*",
+        "illuminate/support": "5.2.*"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "~4.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Somnambulist\\Domain\\": "src/"
+        }
+    },
+    "config": {
+        "preferred-install": "dist",
+        "bin-dir": "bin"
+    }
+}
