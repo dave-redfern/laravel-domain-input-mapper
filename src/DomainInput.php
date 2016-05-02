@@ -32,6 +32,7 @@ use Illuminate\Http\UploadedFile;
  *
  * @package    Somnambulist\Domain
  * @subpackage Somnambulist\Domain\DomainInput
+ * @author     Dave Redfern
  */
 class DomainInput implements DomainInputContract
 {
@@ -93,7 +94,7 @@ class DomainInput implements DomainInputContract
     }
 
     /**
-     * @param $key
+     * @param string $key
      *
      * @return boolean
      */

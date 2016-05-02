@@ -39,9 +39,31 @@ once created as they now represent the request into the domain.
 DomainInput has accessors for input (aliased to get()) and to file(). Both support the Laravel dot
 notation to access nested arrays of data e.g.: object.type.file.
 
+### Domain Response
+
+When returning data back from the domain, it can be preferable to represent the results as a single
+unit that includes:
+
+ * transformed domain data
+ * the transaction / domain status
+ * any messages (e.g. errors / warnings)
+
+A basic interface and implementation are provided that implement a Domain Response.
+
+This response is read-only and utilises the Immutable collection for storing the domain data and any
+messages. In addition, the original Domain Input is associated with the response. This ensures that
+the originating input is available when further processing the domain data.
+
+An important feature is that domain processing result is provided in this response. It does not need
+to be "discovered" again by a view / responder layer. The status can be any data type that your
+application requires, though either a string or integer are suggested.
+
+As the response is read-only and built via the constructor, any domain data should be collected in
+a Collection and this passed into the constructor.
+
 ### Domain Mapper
 
-The second component is an interface and basic aggregate implementation for mapping the DomainInput
+The last component is an interface and basic aggregate implementation for mapping the DomainInput
 to your entity / aggregates. This is a very simple interface containing two methods:
 
  * map

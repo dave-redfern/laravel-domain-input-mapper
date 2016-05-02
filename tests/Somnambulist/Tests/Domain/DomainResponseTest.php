@@ -18,45 +18,31 @@
 
 namespace Somnambulist\Tests\Domain;
 
-use Illuminate\Http\Request;
+use Somnambulist\Domain\Collection\Collection;
+use Somnambulist\Domain\Collection\Immutable;
 use Somnambulist\Domain\DomainInput;
-use Somnambulist\Domain\DomainInputFactory;
+use Somnambulist\Domain\DomainResponse;
 
 /**
- * Class DomainInputFactoryTest
+ * Class DomainResponseTest
  *
  * @package    Somnambulist\Tests\Domain
- * @subpackage Somnambulist\Tests\Domain\DomainInputFactoryTest
+ * @subpackage Somnambulist\Tests\Domain\DomainResponseTest
+ * @author     Dave Redfern
  */
-class DomainInputFactoryTest extends \PHPUnit_Framework_TestCase
+class DomainResponseTest extends \PHPUnit_Framework_TestCase
 {
 
-    /**
-     * @var DomainInputFactory
-     */
-    protected $factory;
-
-    protected function setUp()
+    public function testCreateResponse()
     {
-        $this->factory = new DomainInputFactory();
-    }
-
-    protected function tearDown()
-    {
-        $this->factory = null;
-    }
-
-    public function testCreate()
-    {
-        $input = $this->factory->create();
-
-        $this->assertInstanceOf(DomainInput::class, $input);
-    }
-
-    public function testCreateFromHttpRequest()
-    {
-        $input = $this->factory->createFromHttpRequest(Request::capture());
-
-        $this->assertInstanceOf(DomainInput::class, $input);
+        $response = new DomainResponse(new DomainInput(), new Collection(['foo' => 'bar']), new Collection(), 'ok');
+        
+        $this->assertInstanceOf(\Somnambulist\Domain\Contracts\DomainResponse::class, $response);
+        $this->assertTrue($response->has('foo'));
+        $this->assertEquals('ok', $response->status());
+        $this->assertEquals('bar', $response->get('foo'));
+        $this->assertInstanceOf(\Somnambulist\Domain\Contracts\DomainInput::class, $response->input());
+        $this->assertInstanceOf(Immutable::class, $response->data());
+        $this->assertInstanceOf(Immutable::class, $response->messages());
     }
 }

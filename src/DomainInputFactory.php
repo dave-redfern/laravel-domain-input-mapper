@@ -28,6 +28,7 @@ use Illuminate\Http\Request;
  *
  * @package    Somnambulist\Domain
  * @subpackage Somnambulist\Domain\DomainInputFactory
+ * @author     Dave Redfern
  */
 class DomainInputFactory
 {
