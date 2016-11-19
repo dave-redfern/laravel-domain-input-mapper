@@ -113,7 +113,13 @@ class DomainInput implements DomainInputContract
      */
     public function input($key, $default = null)
     {
-        return data_get($this->inputs, $key, $default);
+        $return = data_get($this->inputs, $key, $default);
+
+        if ($return instanceof Collection) {
+            return new static($return);
+        }
+
+        return $return;
     }
 
     /**
