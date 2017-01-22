@@ -18,8 +18,8 @@
 
 namespace Somnambulist\Domain;
 
-use Somnambulist\Domain\Collection\Collection;
-use Somnambulist\Domain\Collection\Immutable;
+use Somnambulist\Collection\Collection;
+use Somnambulist\Collection\Immutable;
 use Somnambulist\Domain\Contracts\DomainInput as DomainInputContract;
 use Illuminate\Http\UploadedFile;
 

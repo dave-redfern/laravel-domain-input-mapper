@@ -19,8 +19,8 @@
 namespace Somnambulist\Tests\Domain;
 
 use Illuminate\Http\UploadedFile;
-use Somnambulist\Domain\Collection\Collection;
-use Somnambulist\Domain\Collection\Immutable;
+use Somnambulist\Collection\Collection;
+use Somnambulist\Collection\Immutable;
 use Somnambulist\Domain\DomainInput;
 
 /**
@@ -46,6 +46,14 @@ class DomainInputTest extends \PHPUnit_Framework_TestCase
 
         $this->assertEquals('baz', $input->get('bar', 'baz'));
         $this->assertEquals('baz', $input->input('bar', 'baz'));
+    }
+
+    public function testHasInput()
+    {
+        $input = new DomainInput(new Collection(['foo' => ['bar' => 'baz']]));
+
+        $this->assertTrue($input->has('foo'));
+        $this->assertFalse($input->has('example'));
     }
 
     public function testGetFile()

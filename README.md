@@ -9,9 +9,10 @@ For Http, the Laravel Illuminate UploadedFile and Request are used, however any 
 
 ### Requirements
 
- * PHP 5.5+
+ * PHP 5.6+
  * Illuminate/Http 5.2+
  * Illuminate/Support 5.2+
+ * somnambulist/collection 1.0+
 
 ### Installation
 

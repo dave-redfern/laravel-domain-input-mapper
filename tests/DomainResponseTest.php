@@ -18,8 +18,8 @@
 
 namespace Somnambulist\Tests\Domain;
 
-use Somnambulist\Domain\Collection\Collection;
-use Somnambulist\Domain\Collection\Immutable;
+use Somnambulist\Collection\Collection;
+use Somnambulist\Collection\Immutable;
 use Somnambulist\Domain\DomainInput;
 use Somnambulist\Domain\DomainResponse;
 

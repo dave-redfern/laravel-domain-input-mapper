@@ -18,7 +18,7 @@
 
 namespace Somnambulist\Domain;
 
-use Somnambulist\Domain\Collection\Collection;
+use Somnambulist\Collection\Collection;
 use Somnambulist\Domain\Contracts\DomainInput as DomainInputContract;
 use Somnambulist\Domain\Contracts\DomainInputMapper as DomainInputMapperContract;
 

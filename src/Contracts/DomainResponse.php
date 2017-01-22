@@ -18,7 +18,7 @@
 
 namespace Somnambulist\Domain\Contracts;
 
-use Somnambulist\Domain\Collection\Immutable;
+use Somnambulist\Collection\Immutable;
 
 /**
  * Interface DomainResponse

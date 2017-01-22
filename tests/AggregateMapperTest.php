@@ -42,8 +42,8 @@ class AggregateMapperTest extends \PHPUnit_Framework_TestCase
     public function testConstructorInjectedMappers()
     {
         $mapper = new AggregateMapper([
-            $this->getMock(DomainInputMapper::class),
-            $this->getMock(DomainInputMapper::class),
+            $this->createMock(DomainInputMapper::class),
+            $this->createMock(DomainInputMapper::class),
         ]);
 
         $this->assertInstanceOf(AggregateMapper::class, $mapper);
@@ -53,8 +53,8 @@ class AggregateMapperTest extends \PHPUnit_Framework_TestCase
     public function testRemoveMapper()
     {
         $mapper = new AggregateMapper([
-            $this->getMock(DomainInputMapper::class),
-            $tmp = $this->getMock(DomainInputMapper::class),
+            $this->createMock(DomainInputMapper::class),
+            $tmp = $this->createMock(DomainInputMapper::class),
         ]);
 
         $this->assertInstanceOf(AggregateMapper::class, $mapper);
@@ -69,7 +69,7 @@ class AggregateMapperTest extends \PHPUnit_Framework_TestCase
     {
         $entity = new \stdClass();
 
-        $map1 = $this->getMockBuilder(DomainInputMapper::class)->getMock();
+        $map1 = $this->createMock(DomainInputMapper::class);
         $map1
             ->expects($this->once())
             ->method('map')
@@ -84,7 +84,7 @@ class AggregateMapperTest extends \PHPUnit_Framework_TestCase
             ->method('supports')
             ->will($this->returnValue(true))
         ;
-        $map2 = $this->getMockBuilder(DomainInputMapper::class)->getMock();
+        $map2 = $this->createMock(DomainInputMapper::class);
         $map2
             ->expects($this->once())
             ->method('map')
@@ -115,13 +115,13 @@ class AggregateMapperTest extends \PHPUnit_Framework_TestCase
     {
         $entity = new \stdClass();
 
-        $map1 = $this->getMockBuilder(DomainInputMapper::class)->getMock();
+        $map1 = $this->createMock(DomainInputMapper::class);
         $map1
             ->expects($this->once())
             ->method('supports')
             ->will($this->returnValue(false))
         ;
-        $map2 = $this->getMockBuilder(DomainInputMapper::class)->getMock();
+        $map2 = $this->createMock(DomainInputMapper::class);
         $map2
             ->expects($this->once())
             ->method('map')

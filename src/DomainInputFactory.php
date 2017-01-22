@@ -18,7 +18,7 @@
 
 namespace Somnambulist\Domain;
 
-use Somnambulist\Domain\Collection\Collection;
+use Somnambulist\Collection\Collection;
 use Illuminate\Http\Request;
 
 /**
