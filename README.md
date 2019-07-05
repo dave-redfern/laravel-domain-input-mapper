@@ -1,3 +1,7 @@
+This project has been replaced by: somnambulist/domain-input-mapper https://github.com/dave-redfern/somnambulist-domain-input
+
+Please migrated to the alternative package.
+
 ## Domain Input Mapper Library
 
 This library provides an abstraction between a request object e.g. Http\Request and your domain entities.
